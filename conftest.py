@@ -18,6 +18,6 @@ def browser(request):
     browser = webdriver.Chrome(options=options)
     # browser = webdriver.Firefox()
 
-    browser.implicitly_wait(5)
+    # browser.implicitly_wait(5)
     yield browser
     browser.quit()

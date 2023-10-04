@@ -6,13 +6,11 @@ from .login_page import LoginPage
 
 
 class MainPage(BasePage):
-    def go_to_login_page(self):
-        link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        link.click()
-        # return LoginPage(browser=self.browser, url=self.browser.current_url)
-        # assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
-        # login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
-        # login_link.click()
-
-    def should_be_login_link(self):
-        self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
+    # def go_to_login_page(self):
+    #     link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+    #     link.click()
+    #
+    # def should_be_login_link(self):
+    #     self.browser.find_element(By.CSS_SELECTOR, "#login_link")
