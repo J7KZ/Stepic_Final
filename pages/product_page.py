@@ -1,8 +1,4 @@
-import math
 import re
-
-import pyperclip
-from selenium.common.exceptions import NoAlertPresentException
 
 from pages.base_page import BasePage
 from pages.locators import ProductPageLocators
@@ -67,23 +63,6 @@ class ProductPage(BasePage):
     def should_disappear_of_success_message(self):
         """Проверяет, что элемент исчез в искомое время"""
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Сообщение не исчезло"
-
-    # def solve_quiz_and_get_code(self):
-    #     """Решает формулу на капче и копирует код в буфер обмена (Ctrl+C)"""
-    #     alert = self.browser.switch_to.alert
-    #     x = alert.text.split(" ")[2]
-    #     answer = str(math.log(abs((12 * math.sin(float(x))))))
-    #     alert.send_keys(answer)
-    #     alert.accept()
-    #     try:
-    #         alert = self.browser.switch_to.alert
-    #         alert_text = alert.text
-    #         pyperclip.copy(alert_text.split()[-1])
-    #         print(f"Ваш код: {alert_text}")
-    #         alert.accept()
-    #     except NoAlertPresentException:
-    #         print("Alert отсутствует")
-
 
     def should_be_increased_price_basket(self):
         """Проверяет, что цена в корзине изменилась после добавления продукта в нее"""
